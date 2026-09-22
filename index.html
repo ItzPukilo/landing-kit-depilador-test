@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit Depilador 5 en 1 - Piel lisa sin dolor, pago contra entrega</title>
+<meta name="description" content="Kit depilador 5 en 1 para piel lisa sin dolor en casa. Pago contra entrega en todo Ecuador.">
+
+<!-- ============================================================ -->
+<!-- PIXEL DE META - lo activamos en el siguiente paso, no tocar  -->
+<!-- ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-warm: #FFF8F5;
+    --bg-soft: #FCEEF1;
+    --ink: #2B1D1D;
+    --ink-soft: #6B5757;
+    --rose: #D6416F;
+    --rose-dark: #B32E58;
+    --rose-pale: #F4C9D6;
+    --gold: #C9A15E;
+    --white: #FFFFFF;
+    --radius-card: 14px;
+    --radius-pill: 999px;
+    --max-w: 480px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-warm);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+
+  .wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 22px;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  /* ---------- Barra superior de confianza ---------- */
+  .topbar {
+    background: var(--ink);
+    color: var(--white);
+    text-align: center;
+    font-size: 13px;
+    padding: 9px 12px;
+    letter-spacing: 0.2px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 34px 0 26px;
+  }
+  .hero-eyebrow {
+    color: var(--rose-dark);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .hero h1 {
+    font-size: 34px;
+    letter-spacing: -0.3px;
+    margin-bottom: 14px;
+  }
+  .hero p.sub {
+    font-size: 16.5px;
+    color: var(--ink-soft);
+    margin-bottom: 22px;
+    max-width: 40ch;
+  }
+  .hero-media {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    background: linear-gradient(160deg, var(--rose-pale), var(--bg-soft));
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .hero-media .placeholder-label {
+    font-family: 'Inter', sans-serif;
+    color: var(--rose-dark);
+    font-size: 14px;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 10px;
+  }
+  .hero-badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+  }
+  .badge {
+    font-size: 12.5px;
+    background: var(--bg-soft);
+    color: var(--rose-dark);
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+  }
+
+  /* ---------- BOTONES ---------- */
+  .btn-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--rose);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 17px 20px;
+    border: none;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+  .btn-cta:active { transform: scale(0.98); }
+  .btn-cta:hover { background: var(--rose-dark); }
+  .btn-cta .price-strike {
+    display: block;
+    font-weight: 500;
+    font-size: 13px;
+    opacity: 0.85;
+    margin-top: 2px;
+  }
+
+  /* ---------- SECCIONES GENERALES ---------- */
+  section { padding: 38px 0; }
+  .section-soft { background: var(--bg-soft); }
+  .section-ink {
+    background: var(--ink);
+    color: var(--white);
+  }
+  .section-ink h2 { color: var(--white); }
+
+  h2.section-title {
+    font-size: 25px;
+    margin-bottom: 22px;
+  }
+
+  /* ---------- PROBLEMA ---------- */
+  .pain-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .pain-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 15.5px;
+    color: var(--ink-soft);
+  }
+  .pain-item .x-mark {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #F0DEDE;
+    color: #A14444;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+
+  /* ---------- BENEFICIOS ---------- */
+  .benefit-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .benefit {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .benefit .check-mark {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--rose);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .benefit h3 {
+    font-size: 16.5px;
+    margin-bottom: 3px;
+  }
+  .benefit p {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- COMO FUNCIONA ---------- */
+  .steps { display: flex; flex-direction: column; gap: 20px; }
+  .step { display: flex; gap: 14px; align-items: flex-start; }
+  .step-num {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1.5px solid var(--rose);
+    color: var(--rose-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+  }
+  .step h3 { font-size: 16px; margin-bottom: 2px; }
+  .step p { font-size: 14px; color: var(--ink-soft); }
+
+  /* ---------- TESTIMONIOS ---------- */
+  .testimonial-scroll {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    margin: 0 -22px;
+    padding-left: 22px;
+    padding-right: 22px;
+    scroll-snap-type: x mandatory;
+  }
+  .testimonial-card {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+    width: 250px;
+    background: var(--white);
+    border-radius: var(--radius-card);
+    padding: 18px;
+    border: 1px solid #F0DDE3;
+  }
+  .stars { color: var(--gold); font-size: 14px; margin-bottom: 8px; letter-spacing: 1px; }
+  .testimonial-card p.quote {
+    font-size: 14px;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .testimonial-card .who {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+
+  /* ---------- OFERTA ---------- */
+  .offer-box {
+    background: var(--white);
+    border: 1.5px solid var(--rose-pale);
+    border-radius: var(--radius-card);
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .offer-box .old-price {
+    font-size: 15px;
+    color: var(--ink-soft);
+    text-decoration: line-through;
+  }
+  .offer-box .new-price {
+    font-family: 'Fraunces', serif;
+    font-size: 42px;
+    color: var(--rose-dark);
+    margin: 4px 0 2px;
+  }
+  .offer-box .offer-note {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+  .stock-note {
+    font-size: 13px;
+    color: var(--rose-dark);
+    font-weight: 600;
+    margin-top: 12px;
+  }
+
+  /* ---------- FORMULARIO ---------- */
+  #pedido {
+    background: linear-gradient(180deg, var(--bg-soft), var(--bg-warm));
+  }
+  .form-card {
+    background: var(--white);
+    border-radius: var(--radius-card);
+    padding: 22px 20px 24px;
+    box-shadow: 0 4px 24px rgba(43,29,29,0.06);
+  }
+  .field { margin-bottom: 14px; }
+  .field label {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .field input, .field select {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 15.5px;
+    padding: 13px 14px;
+    border: 1.5px solid #E8D9DD;
+    border-radius: 10px;
+    background: var(--bg-warm);
+    color: var(--ink);
+  }
+  .field input:focus, .field select:focus {
+    outline: none;
+    border-color: var(--rose);
+  }
+  .field-row { display: flex; gap: 10px; }
+  .field-row .field { flex: 1; }
+  .form-note {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-top: 12px;
+  }
+  #form-status {
+    display: none;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 14px;
+  }
+  #form-status.error {
+    display: block;
+    background: #FBEAEA;
+    color: #A14444;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-item {
+    border-bottom: 1px solid #EFDEE3;
+    padding: 16px 0;
+  }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item h3 {
+    font-size: 15.5px;
+    margin-bottom: 6px;
+  }
+  .faq-item p {
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    text-align: center;
+    padding: 26px 22px 40px;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- CTA FLOTANTE (mobile) ---------- */
+  .sticky-cta {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+    background: rgba(255,248,245,0.95);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid #F0DDE3;
+    z-index: 50;
+  }
+  .sticky-cta .btn-cta { font-size: 15.5px; padding: 14px 16px; }
+  body { padding-bottom: 78px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn-cta { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">Pago contra entrega &middot; Envío a todo Ecuador</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <p class="hero-eyebrow">Depilación en casa</p>
+    <h1>Piel lisa y suave, sin dolor y sin salir de casa</h1>
+    <p class="sub">El kit 5 en 1 que reemplaza la cera, la máquina de afeitar y las visitas al spa &mdash; en un solo aparato recargable.</p>
+
+    <div class="hero-media">
+      <div class="placeholder-label">[ Foto o video del producto en uso aquí ]</div>
+    </div>
+
+    <div class="hero-badges">
+      <span class="badge">Pago al recibir</span>
+      <span class="badge">Entrega 24-48h en Guayaquil</span>
+      <span class="badge">Inalámbrico</span>
+    </div>
+
+    <a href="#pedido" class="btn-cta">Quiero el mío
+      <span class="price-strike">Antes $39.99 &middot; Hoy $24.99</span>
+    </a>
+  </div>
+</section>
+
+<!-- ================= PROBLEMA ================= -->
+<section class="section-soft">
+  <div class="wrap">
+    <h2 class="section-title">¿Te suena familiar?</h2>
+    <ul class="pain-list">
+      <li class="pain-item"><span class="x-mark">&times;</span> La cera duele y deja la piel irritada por días.</li>
+      <li class="pain-item"><span class="x-mark">&times;</span> La máquina de afeitar corta y el vello sale más grueso.</li>
+      <li class="pain-item"><span class="x-mark">&times;</span> El spa es caro y hay que sacar cita cada mes.</li>
+      <li class="pain-item"><span class="x-mark">&times;</span> No tienes tiempo para salir a depilarte entre el trabajo y la casa.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= BENEFICIOS ================= -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">Un kit, cinco soluciones</h2>
+    <div class="benefit-grid">
+      <div class="benefit">
+        <span class="check-mark">&check;</span>
+        <div>
+          <h3>Sin dolor, sin irritación</h3>
+          <p>Tecnología de depilación suave, apta para piernas, axilas y zona de bikini.</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <span class="check-mark">&check;</span>
+        <div>
+          <h3>5 cabezales intercambiables</h3>
+          <p>Uno para cada zona del cuerpo, incluido pulido facial y callos.</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <span class="check-mark">&check;</span>
+        <div>
+          <h3>Recargable e inalámbrico</h3>
+          <p>Úsalo en el baño, en el cuarto o donde quieras, sin cables.</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <span class="check-mark">&check;</span>
+        <div>
+          <h3>Se paga solo en 2 meses</h3>
+          <p>Lo que gastabas en cera o spa cada mes, ahora te lo ahorras.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMO FUNCIONA ================= -->
+<section class="section-soft">
+  <div class="wrap">
+    <h2 class="section-title">Así de simple</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">1</span>
+        <div><h3>Elige el cabezal</h3><p>Según la zona que quieras tratar.</p></div>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <div><h3>Pásalo por la piel</h3><p>Sin geles ni cremas previas.</p></div>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <div><h3>Disfruta la piel lisa</h3><p>Resultado visible desde el primer uso.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIOS ================= -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title">Lo que dicen quienes ya lo probaron</h2>
+  </div>
+  <div class="testimonial-scroll">
+    <div class="testimonial-card">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="quote">[Espacio para testimonio real de clienta 1, con foto de WhatsApp o reseña]</p>
+      <p class="who">&mdash; Clienta, Guayaquil</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="quote">[Espacio para testimonio real de clienta 2]</p>
+      <p class="who">&mdash; Clienta, Quito</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="quote">[Espacio para testimonio real de clienta 3]</p>
+      <p class="who">&mdash; Clienta, Cuenca</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OFERTA ================= -->
+<section class="section-soft">
+  <div class="wrap">
+    <div class="offer-box">
+      <p class="old-price">$39.99</p>
+      <p class="new-price">$24.99</p>
+      <p class="offer-note">Pago contra entrega &middot; Envío incluido</p>
+      <a href="#pedido" class="btn-cta">Pedir ahora</a>
+      <p class="stock-note">Quedan pocas unidades para este mes</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FORMULARIO ================= -->
+<section id="pedido">
+  <div class="wrap">
+    <h2 class="section-title">Completa tus datos y te llamamos para confirmar</h2>
+    <div class="form-card">
+      <div id="form-status"></div>
+      <form id="orderForm">
+        <div class="field">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Ej. María Pérez">
+        </div>
+        <div class="field">
+          <label for="whatsapp">Número de WhatsApp</label>
+          <input type="tel" id="whatsapp" name="whatsapp" required placeholder="Ej. 0991234567">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="provincia">Provincia</label>
+            <select id="provincia" name="provincia" required>
+              <option value="" disabled selected>Selecciona</option>
+              <option>Azuay</option><option>Bolívar</option><option>Cañar</option>
+              <option>Carchi</option><option>Chimborazo</option><option>Cotopaxi</option>
+              <option>El Oro</option><option>Esmeraldas</option><option>Galápagos</option>
+              <option>Guayas</option><option>Imbabura</option><option>Loja</option>
+              <option>Los Ríos</option><option>Manabí</option><option>Morona Santiago</option>
+              <option>Napo</option><option>Orellana</option><option>Pastaza</option>
+              <option>Pichincha</option><option>Santa Elena</option>
+              <option>Santo Domingo de los Tsáchilas</option><option>Sucumbíos</option>
+              <option>Tungurahua</option><option>Zamora Chinchipe</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="ciudad">Ciudad</label>
+            <input type="text" id="ciudad" name="ciudad" required placeholder="Ej. Guayaquil">
+          </div>
+        </div>
+        <div class="field">
+          <label for="direccion">Dirección de entrega</label>
+          <input type="text" id="direccion" name="direccion" required placeholder="Calle principal y secundaria">
+        </div>
+        <div class="field">
+          <label for="cantidad">Cantidad</label>
+          <select id="cantidad" name="cantidad" required>
+            <option value="1">1 unidad</option>
+            <option value="2">2 unidades</option>
+            <option value="3">3 unidades</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="referencia">Referencia (opcional)</label>
+          <input type="text" id="referencia" name="referencia" placeholder="Ej. Casa color celeste, junto a la tienda">
+        </div>
+        <button type="submit" class="btn-cta" id="submitBtn">Confirmar mi pedido</button>
+        <p class="form-note">No pagas nada ahora. Solo confirmamos por WhatsApp y pagas al recibir.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section-soft">
+  <div class="wrap">
+    <h2 class="section-title">Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Cuándo pago?</h3>
+      <p>Pagas en efectivo cuando el mensajero te entrega el paquete en tu casa. Nada por adelantado.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Cuánto demora la entrega?</h3>
+      <p>Entre 24 y 48 horas en Guayaquil, y de 2 a 4 días en el resto del país.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Qué pasa si no contesto la llamada?</h3>
+      <p>Te escribimos por WhatsApp al número que dejes en el formulario para coordinar la entrega.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Tiene garantía?</h3>
+      <p>Sí, si el producto llega dañado o no funciona, se cambia sin costo.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  El Mercadito &middot; Guayaquil, Ecuador<br>
+  Contacto: WhatsApp al confirmar tu pedido
+</footer>
+
+<div class="sticky-cta">
+  <a href="#pedido" class="btn-cta">Pedir ahora &middot; $24.99</a>
+</div>
+
+<script>
+  // ============================================================
+  // CONFIGURACION: aqui pegaremos la URL de Google Apps Script
+  // en el siguiente paso.
+  // ============================================================
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzW5sx1jVGFJBWWd9JQ7sDmcB-DANwxRcrkdPhV3dG3356c-CSchDAq7V5TR-5i64fmSg/exec";
+
+  const form = document.getElementById('orderForm');
+  const statusBox = document.getElementById('form-status');
+  const submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    statusBox.style.display = 'none';
+    statusBox.className = '';
+
+    const data = {
+      nombre: document.getElementById('nombre').value.trim(),
+      whatsapp: document.getElementById('whatsapp').value.trim(),
+      provincia: document.getElementById('provincia').value,
+      ciudad: document.getElementById('ciudad').value.trim(),
+      direccion: document.getElementById('direccion').value.trim(),
+      referencia: document.getElementById('referencia').value.trim(),
+      cantidad: document.getElementById('cantidad').value,
+      producto: "Kit Depilador 5 en 1",
+      precio: "24.99",
+      fecha: new Date().toLocaleString('es-EC', { timeZone: 'America/Guayaquil' })
+    };
+
+    submitBtn.textContent = 'Enviando...';
+    submitBtn.disabled = true;
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function () {
+      // Con mode: no-cors no podemos leer la respuesta,
+      // asi que asumimos éxito y redirigimos a la pagina de gracias.
+      window.location.href = 'gracias.html';
+    })
+    .catch(function (err) {
+      submitBtn.textContent = 'Confirmar mi pedido';
+      submitBtn.disabled = false;
+      statusBox.textContent = 'Hubo un problema al enviar. Intenta de nuevo o escríbenos por WhatsApp.';
+      statusBox.className = 'error';
+      statusBox.style.display = 'block';
+    });
+  });
+</script>
+
+</body>
+</html>

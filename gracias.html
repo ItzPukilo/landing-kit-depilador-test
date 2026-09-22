@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Pedido recibido - Kit Depilador 5 en 1</title>
+
+<!-- ============================================================ -->
+<!-- PIXEL DE META - lo activamos en el siguiente paso, no tocar  -->
+<!-- El evento de conversion (Lead/Purchase) tambien va aqui      -->
+<!-- ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-warm: #FFF8F5;
+    --ink: #2B1D1D;
+    --ink-soft: #6B5757;
+    --rose: #D6416F;
+    --rose-dark: #B32E58;
+    --rose-pale: #F4C9D6;
+    --white: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-warm);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px calc(22px + env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom, 0px)) calc(22px + env(safe-area-inset-left, 0px));
+    padding-top: calc(24px + env(safe-area-inset-top, 0px));
+  }
+  .card {
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+  }
+  .check-circle {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: var(--rose);
+    color: var(--white);
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 22px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 26px;
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+  p {
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  .whatsapp-note {
+    background: var(--white);
+    border: 1.5px solid var(--rose-pale);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-top: 22px;
+    text-align: left;
+  }
+  .whatsapp-note .wa-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 14.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .whatsapp-note .wa-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3FBA5C;
+    flex-shrink: 0;
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .whatsapp-note p {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+  .recap {
+    margin-top: 26px;
+    text-align: left;
+  }
+  .recap p.recap-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--rose-dark);
+    margin-bottom: 10px;
+  }
+  .recap ul {
+    list-style: none;
+  }
+  .recap li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14px;
+    color: var(--ink);
+    margin-bottom: 9px;
+  }
+  .recap li span.dot {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--rose);
+    color: var(--white);
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .whatsapp-note .wa-dot { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="check-circle">&check;</div>
+  <h1>¡Listo! Tu pedido está en camino a confirmarse</h1>
+  <p>Ya tenemos tus datos. Ahora sigue un paso muy sencillo.</p>
+
+  <div class="whatsapp-note">
+    <div class="wa-title"><span class="wa-dot"></span> Te escribimos por WhatsApp</div>
+    <p>En los próximos minutos uno de nuestros asesores te contacta al número que dejaste, para confirmar tu dirección y coordinar la entrega. No pagas nada hasta ese momento.</p>
+  </div>
+
+  <div class="recap">
+    <p class="recap-label">Esto es lo que estás a punto de recibir</p>
+    <ul>
+      <li><span class="dot">&check;</span> Piel lisa y suave, sin cera ni cuchillas</li>
+      <li><span class="dot">&check;</span> 5 cabezales para cada zona del cuerpo</li>
+      <li><span class="dot">&check;</span> Pago en efectivo al recibirlo en tu puerta</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>
