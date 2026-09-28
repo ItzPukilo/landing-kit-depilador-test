@@ -34,7 +34,9 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: env(safe-area-inset-top, 0px);
+    scroll-padding-top: calc(var(--topbar-h, 38px) + env(safe-area-inset-top, 0px));
+    overflow-x: hidden;
+    width: 100%;
   }
 
   body {
@@ -43,8 +45,10 @@
     color: var(--ink);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
-    padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
   }
 
   h1, h2, h3 {
@@ -62,19 +66,47 @@
 
   img { max-width: 100%; display: block; }
 
-  /* ---------- Barra superior de confianza ---------- */
+  /* ---------- Barra superior de confianza (fija + marquee) ---------- */
   .topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
     background: var(--ink);
     color: var(--white);
-    text-align: center;
+    padding-top: env(safe-area-inset-top, 0px);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .topbar-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 16s linear infinite;
+    padding: 9px 0;
+  }
+  .topbar-track span {
     font-size: 13px;
-    padding: 9px 12px;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.3px;
+    font-weight: 500;
+    padding: 0 28px;
+    flex-shrink: 0;
+  }
+  .topbar-track span::after {
+    content: "\2022";
+    margin-left: 28px;
+    opacity: 0.6;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .topbar-track { animation: none; }
   }
 
   /* ---------- HERO ---------- */
   .hero {
     padding: 34px 0 26px;
+    margin-top: var(--topbar-h, 38px);
   }
   .hero-eyebrow {
     color: var(--rose-dark);
@@ -245,25 +277,34 @@
   .step h3 { font-size: 16px; margin-bottom: 2px; }
   .step p { font-size: 14px; color: var(--ink-soft); }
 
-  /* ---------- TESTIMONIOS ---------- */
-  .testimonial-scroll {
-    display: flex;
-    gap: 14px;
-    overflow-x: auto;
-    padding-bottom: 6px;
-    margin: 0 -22px;
-    padding-left: 22px;
-    padding-right: 22px;
-    scroll-snap-type: x mandatory;
+  /* ---------- TESTIMONIOS (carrusel automático centrado) ---------- */
+  .testimonial-carousel {
+    position: relative;
+    max-width: 300px;
+    margin: 0 auto;
+    min-height: 168px;
+  }
+  .testimonial-track {
+    position: relative;
+    height: 100%;
   }
   .testimonial-card {
-    scroll-snap-align: start;
-    flex: 0 0 auto;
-    width: 250px;
+    position: absolute;
+    inset: 0;
+    text-align: center;
     background: var(--white);
     border-radius: var(--radius-card);
-    padding: 18px;
+    padding: 20px 22px;
     border: 1px solid #F0DDE3;
+    opacity: 0;
+    transform: translateX(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+  }
+  .testimonial-card.is-active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
   }
   .stars { color: var(--gold); font-size: 14px; margin-bottom: 8px; letter-spacing: 1px; }
   .testimonial-card p.quote {
@@ -275,6 +316,22 @@
     font-size: 12.5px;
     color: var(--ink-soft);
     font-weight: 600;
+  }
+  .testimonial-dots {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 16px;
+  }
+  .testimonial-dots span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--rose-pale);
+    transition: background 0.3s ease;
+  }
+  .testimonial-dots span.is-active {
+    background: var(--rose);
   }
 
   /* ---------- OFERTA ---------- */
@@ -399,15 +456,52 @@
   .sticky-cta .btn-cta { font-size: 15.5px; padding: 14px 16px; }
   body { padding-bottom: 78px; }
 
+  /* ---------- OVERLAY DE CARGA ---------- */
+  .loading-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(43, 29, 29, 0.55);
+    backdrop-filter: blur(2px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .loading-overlay.is-visible { display: flex; }
+  .loading-spinner {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 4px solid rgba(255,255,255,0.35);
+    border-top-color: var(--white);
+    animation: spin 0.8s linear infinite;
+  }
+  .loading-overlay p {
+    color: var(--white);
+    font-size: 14.5px;
+    font-weight: 600;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
+    .loading-spinner { animation: spin 1.4s linear infinite; }
     .btn-cta { transition: none; }
   }
 </style>
 </head>
 <body>
 
-<div class="topbar">Pago contra entrega &middot; Envío a todo Ecuador</div>
+<div class="topbar" id="topbar">
+  <div class="topbar-track">
+    <span>Pago contra entrega</span>
+    <span>Envío a todo Ecuador</span>
+    <span>Pago contra entrega</span>
+    <span>Envío a todo Ecuador</span>
+  </div>
+</div>
 
 <!-- ================= HERO ================= -->
 <section class="hero">
@@ -507,22 +601,27 @@
 <section>
   <div class="wrap">
     <h2 class="section-title">Lo que dicen quienes ya lo probaron</h2>
-  </div>
-  <div class="testimonial-scroll">
-    <div class="testimonial-card">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="quote">[Espacio para testimonio real de clienta 1, con foto de WhatsApp o reseña]</p>
-      <p class="who">&mdash; Clienta, Guayaquil</p>
-    </div>
-    <div class="testimonial-card">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="quote">[Espacio para testimonio real de clienta 2]</p>
-      <p class="who">&mdash; Clienta, Quito</p>
-    </div>
-    <div class="testimonial-card">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="quote">[Espacio para testimonio real de clienta 3]</p>
-      <p class="who">&mdash; Clienta, Cuenca</p>
+    <div class="testimonial-carousel">
+      <div class="testimonial-track" id="testimonialTrack">
+        <div class="testimonial-card is-active">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="quote">[Espacio para testimonio real de clienta 1, con foto de WhatsApp o reseña]</p>
+          <p class="who">&mdash; Clienta, Guayaquil</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="quote">[Espacio para testimonio real de clienta 2]</p>
+          <p class="who">&mdash; Clienta, Quito</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="quote">[Espacio para testimonio real de clienta 3]</p>
+          <p class="who">&mdash; Clienta, Cuenca</p>
+        </div>
+      </div>
+      <div class="testimonial-dots" id="testimonialDots">
+        <span class="is-active"></span><span></span><span></span>
+      </div>
     </div>
   </div>
 </section>
@@ -631,16 +730,47 @@
   <a href="#pedido" class="btn-cta">Pedir ahora &middot; $24.99</a>
 </div>
 
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-spinner"></div>
+  <p>Enviando tu pedido...</p>
+</div>
+
 <script>
   // ============================================================
-  // CONFIGURACION: aqui pegaremos la URL de Google Apps Script
-  // en el siguiente paso.
+  // CONFIGURACION: URL del Google Apps Script
   // ============================================================
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzW5sx1jVGFJBWWd9JQ7sDmcB-DANwxRcrkdPhV3dG3356c-CSchDAq7V5TR-5i64fmSg/exec";
 
+  // ---------- Altura real del topbar fijo, para el margen del hero ----------
+  function setTopbarHeight() {
+    const topbar = document.getElementById('topbar');
+    if (topbar) {
+      document.documentElement.style.setProperty('--topbar-h', topbar.offsetHeight + 'px');
+    }
+  }
+  setTopbarHeight();
+  window.addEventListener('resize', setTopbarHeight);
+
+  // ---------- Carrusel automático de testimonios ----------
+  (function () {
+    const cards = document.querySelectorAll('#testimonialTrack .testimonial-card');
+    const dots = document.querySelectorAll('#testimonialDots span');
+    if (!cards.length) return;
+    let current = 0;
+    setInterval(function () {
+      cards[current].classList.remove('is-active');
+      dots[current].classList.remove('is-active');
+      current = (current + 1) % cards.length;
+      cards[current].classList.add('is-active');
+      dots[current].classList.add('is-active');
+    }, 4000);
+  })();
+
+  // ---------- Envío del formulario ----------
   const form = document.getElementById('orderForm');
   const statusBox = document.getElementById('form-status');
   const submitBtn = document.getElementById('submitBtn');
+  const loadingOverlay = document.getElementById('loadingOverlay');
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -660,8 +790,8 @@
       fecha: new Date().toLocaleString('es-EC', { timeZone: 'America/Guayaquil' })
     };
 
-    submitBtn.textContent = 'Enviando...';
     submitBtn.disabled = true;
+    loadingOverlay.classList.add('is-visible');
 
     fetch(SCRIPT_URL, {
       method: 'POST',
@@ -675,7 +805,7 @@
       window.location.href = 'gracias.html';
     })
     .catch(function (err) {
-      submitBtn.textContent = 'Confirmar mi pedido';
+      loadingOverlay.classList.remove('is-visible');
       submitBtn.disabled = false;
       statusBox.textContent = 'Hubo un problema al enviar. Intenta de nuevo o escríbenos por WhatsApp.';
       statusBox.className = 'error';
