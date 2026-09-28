@@ -6,9 +6,29 @@
 <title>Pedido recibido - Kit Depilador 5 en 1</title>
 
 <!-- ============================================================ -->
-<!-- PIXEL DE META - lo activamos en el siguiente paso, no tocar  -->
-<!-- El evento de conversion (Lead/Purchase) tambien va aqui      -->
+<!-- PIXEL DE META - evento de conversion (Lead) -->
 <!-- ============================================================ -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1411889667740244');
+fbq('track', 'PageView');
+fbq('track', 'Lead', {
+  content_name: 'Kit Depilador 5 en 1',
+  value: 24.99,
+  currency: 'USD'
+});
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1411889667740244&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
